@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context=".FlexBoxLayoutActivity">
+
+    <com.google.android.flexbox.FlexboxLayout
+        app:flexDirection="row"
+        app:flexWrap="wrap"
+        android:id="@+id/flex_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <Button
+        android:text="add_flex_box"
+        android:id="@+id/add_flex_box_tag"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
