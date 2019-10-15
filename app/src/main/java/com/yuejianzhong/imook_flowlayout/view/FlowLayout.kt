@@ -9,7 +9,7 @@ import com.yuejianzhong.imook_flowlayout.R
 import kotlin.math.max
 import kotlin.math.min
 
-class FlowLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
+open class FlowLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     ViewGroup(context, attrs) {
 
     //所有的 view，二维数组
@@ -31,7 +31,7 @@ class FlowLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet
         val typeArray = context.obtainStyledAttributes(attrs, R.styleable.FlowLayout)
         mMaxLines= typeArray.getInt(R.styleable.FlowLayout_maxLines, Int.MAX_VALUE)
         typeArray.recycle()
-        Log.d(TAG,"mMaxLines: $mMaxLines")
+//        Log.d(TAG,"mMaxLines: $mMaxLines")
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -51,7 +51,7 @@ class FlowLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet
 
         val cCount = childCount
 
-        Log.e(TAG, sizeWidth.toString())
+//        Log.e(TAG, sizeWidth.toString())
 
 
         //一行所有的 view
@@ -72,13 +72,13 @@ class FlowLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet
             val cWidth = child.measuredWidth + lp.leftMargin + lp.rightMargin
             val cHeight = child.measuredHeight + lp.topMargin+ lp.bottomMargin
 
-            Log.d(TAG,"cWidth $cWidth")
+//            Log.d(TAG,"cWidth $cWidth")
 
             //如果当前宽度 > viewgroup 宽，换行
             if (lineWidth + cWidth > sizeWidth - (paddingLeft+paddingRight)) {
 
                 height += lineHeight
-                Log.d(TAG,"换行 $height,$lineHeight")
+//                Log.d(TAG,"换行 $height,$lineHeight")
 
                 mLineHeight.add(lineHeight)
 
@@ -115,21 +115,21 @@ class FlowLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet
         }
 
         if (modeHeight == MeasureSpec.EXACTLY) {
-            Log.d(TAG, "EXACTLY,sizeHeight: $sizeHeight")
+//            Log.d(TAG, "EXACTLY,sizeHeight: $sizeHeight")
             height = sizeHeight
         }
         else if (modeHeight == MeasureSpec.AT_MOST){
             height = min(sizeHeight,height)
             height += paddingTop + paddingBottom
-            Log.d(TAG,"AT_MOST,sizeHeight: $sizeHeight,height: $height")
+//            Log.d(TAG,"AT_MOST,sizeHeight: $sizeHeight,height: $height")
         }else if (modeHeight == MeasureSpec.UNSPECIFIED) {
             height += paddingTop + paddingBottom
         }
 
         setMeasuredDimension(sizeWidth,height)
 
-        Log.d(TAG,"sizeWidth ${sizeWidth.toString()}")
-        Log.d(TAG,"height： ${height.toString()}")
+//        Log.d(TAG,"sizeWidth ${sizeWidth.toString()}")
+//        Log.d(TAG,"height： ${height.toString()}")
 
     }
 

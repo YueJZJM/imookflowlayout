@@ -22,5 +22,9 @@ class MainActivity : AppCompatActivity() {
         flew_recycler_activity.onClick {
             startActivity<FlexBoxLayoutManagerActivity>()
         }
+
+        tag_flow_activity.onClick {
+            startActivity<TagFlowActivity>()
+        }
     }
 }
